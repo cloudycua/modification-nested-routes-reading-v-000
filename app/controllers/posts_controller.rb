@@ -20,6 +20,7 @@ class PostsController < ApplicationController
 # makes sure that if we capture an author_id through a nested route
 # we keep track of it and assign the post to that author
   def new
+    if params[:author_id] && !Author.exists?(params[:author_id])
     @post = Post.new(author_id: params[:author_id])
   end
 
