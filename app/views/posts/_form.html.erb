@@ -2,6 +2,10 @@
   <label>Post title:</label><br>
   <%= f.text_field :title %><br>
 
+<!-- present a list of authors when none is present -->  
+    <%= f.select :author_id, options_from_collection_for_select(Author.all, :id, :name) %><br>
+  <% end %>  
+
 <!-- author_id setup in new action of PostsController
      gets submitted back to server here -->
   <%= f.hidden_field :author_id %>
